@@ -30,5 +30,4 @@ while right <= N and left <= right:
         right += 1 # 그 다음으로 넓은 풀에서 total == M 이 되는 값을 찾아야하기 때문이다.
 
     
-print(cnt)
-        
+print(cnt)       
