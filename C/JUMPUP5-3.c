@@ -9,7 +9,51 @@
 // - 출력: 색종이가 붙은 검은 영역의 넓이를 출력한다.
 
 #include <stdio.h>
+#define SIZE 100
+
+int canvas[SIZE][SIZE] = {0}; // 도화지 크기는 100x100
+
+void attachPaper(int x, int y)
+{
+    for (int i = x; i < x + 10; i++)
+    {
+        for (int j = y; j < y + 10; j++)
+        {
+            canvas[i][j] = 1; // 색종이 부분을 1로 표시
+        }
+    }
+}
+
+int calculateArea()
+{
+    int area = 0;
+    for (int i = 0; i < SIZE; i++)
+    {
+        for (int j = 0; j < SIZE; j++)
+        {
+            if (canvas[i][j] == 1)
+            {
+                area++;
+            }
+        }
+    }
+    return area;
+}
 
 int main()
 {
+    int n;
+    scanf("%d", &n); // 색종이의 수 입력받기
+
+    for (int i = 0; i < n; i++)
+    {
+        int x, y;
+        scanf("%d %d", &x, &y); // 색종이 위치 입력받기
+        attachPaper(x, y);
+    }
+
+    int blackArea = calculateArea();
+    printf("%d\n", blackArea); // 검은색 영역의 넓이 출력
+
+    return 0;
 }

@@ -7,7 +7,39 @@
 // - 출력: k개의 줄에 순서대로 배열의 합을 출력한다.
 
 #include <stdio.h>
+#define MAX 300
 
 int main()
 {
+    int N, M, K;
+    int array[MAX][MAX];
+    scanf("%d %d", &N, &M);
+
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = 0; j < M; j++)
+        {
+            scanf("%d", &array[i][j]);
+        }
+    }
+
+    scanf("%d", &K);
+
+    for (int q = 0; q < K; q++)
+    {
+        int i, j, x, y;
+        int sum = 0;
+
+        scanf("%d %d %d %d", &i, &j, &x, &y);
+
+        for (int row = i - 1; row < x; row++)
+        {
+            for (int col = j - 1; col < y; col++)
+            {
+                sum += array[row][col];
+            }
+        }
+        printf("%d\n", sum);
+    }
+    return 0;
 }
